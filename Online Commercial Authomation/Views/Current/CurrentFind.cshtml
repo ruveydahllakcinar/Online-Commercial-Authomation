@@ -1,0 +1,38 @@
+﻿@model Online_Commercial_Authomation.Models.Classes.Current
+@{
+    ViewBag.Title = "CurrentFind";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>Current Update</h2>
+<br />
+
+@using (Html.BeginForm("CurrentUpdate", "Current", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.HiddenFor(x => x.CurrentId)
+    @Html.LabelFor(x => x.CurrentName)
+    @Html.TextBoxFor(x => x.CurrentName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.CurrentName," " ,new { @style = "color:red" })
+    <br />
+
+    @Html.LabelFor(x => x.CurrentSurname)
+    @Html.TextBoxFor(x => x.CurrentSurname, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.CurrentSurname, " ", new { @style = "color:warning" })
+
+    <br />
+
+    @Html.LabelFor(x => x.CurrentCity)
+    @Html.TextBoxFor(x => x.CurrentCity, new { @class = "form-control" })
+    <br />
+
+    @Html.LabelFor(x => x.CurrentMail)
+    @Html.TextBoxFor(x => x.CurrentMail, new { @class = "form-control" })
+    <br />
+
+</div>
+
+    <button class="btn btn-warning">UPDATE</button>
+}
+

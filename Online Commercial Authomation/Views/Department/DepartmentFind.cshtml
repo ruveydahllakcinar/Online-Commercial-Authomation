@@ -1,0 +1,23 @@
+﻿@model Online_Commercial_Authomation.Models.Classes.Department
+@{
+    ViewBag.Title = "DepartmentFind";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>Category Update</h2>
+<br />
+
+@using (Html.BeginForm("DepartmentUpdate", "Department", FormMethod.Post))
+{
+    <div class="form-group">
+
+        @Html.LabelFor(x => x.DepartmentName)
+        @Html.TextBoxFor(x => x.DepartmentName, new { @class = "form-control" })
+        @Html.HiddenFor(x => x.DepartmentId, new { @class = "form-control" })
+
+    </div>
+
+    <button class="btn btn-default" style="background-color: #944D6F; color: white "> UPDATE</button>
+}
+

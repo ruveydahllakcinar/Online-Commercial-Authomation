@@ -1,0 +1,19 @@
+﻿@model Online_Commercial_Authomation.Models.Classes.Department
+@{
+    ViewBag.Title = "DepartmenAdd";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>NEW DEPARTMENT PAGE</h2>
+<br />
+
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.DepartmentName)
+    @Html.TextBoxFor(x => x.DepartmentName, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-warning">SAVE</button>
+</form>
+
+
+

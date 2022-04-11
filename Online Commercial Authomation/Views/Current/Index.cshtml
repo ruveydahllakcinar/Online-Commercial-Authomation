@@ -1,0 +1,41 @@
+﻿@using Online_Commercial_Authomation.Models.Classes
+@model List<Current>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<h2>Index</h2>
+<br />
+
+<table class="table table-striped">
+
+    <tr>
+        <th>CURRENTS ID</th>
+        <th>NAME</th>
+        <th>SURNAME</th>
+        <th>CITY</th>
+        <th>MAIL</th>
+        <th>DELETE</th>
+        <th>UPDATE</th>
+        <th>DETAILS</th>
+
+
+    </tr>
+    @foreach (var current in Model)
+    {
+        <tr>
+            <td>@current.CurrentId</td>
+            <td>@current.CurrentName</td>
+            <td>@current.CurrentSurname</td>
+            <td>@current.CurrentCity</td>
+            <td>@current.CurrentMail</td>
+            <td><a href="/Current/CurrentDelete/@current.CurrentId" class="btn btn-danger">DELETE</a></td>
+            <td><a href="/Current/CurrentFind/@current.CurrentId" class="btn btn-info">UPDATE</a></td>
+            <td><a href="/Current/CurrentSale/@current.CurrentId" class="btn btn-default" style="background-color: lightcoral; color: #fff;">SALES HISTORY</a></td>
+        </tr>
+    }
+
+    </table>
+
+<a href="/Current/CurrentAdd/" class="btn btn-success"color:#fff;"><b>ADD NEW CURRENT</b></a>

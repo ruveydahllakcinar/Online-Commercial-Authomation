@@ -25,7 +25,8 @@ namespace Online_Commercial_Authomation.Models.Classes
         public string EmployeeImage { get; set; }
 
         public ICollection<SaleMove> SaleMoves { get; set; }
-        public Department Department { get; set; }
+        public int DepartmentId { get; set; }
+        public virtual  Department Department { get; set; }
 
     }
 

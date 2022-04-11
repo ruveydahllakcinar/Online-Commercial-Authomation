@@ -1,0 +1,37 @@
+﻿@using Online_Commercial_Authomation.Models.Classes
+@model List<Employee>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<table class="table table-bordered" style="margin-top:20px">
+    <tr>
+        <th>ID</th>
+        <th>EMPLOYEE NAME</th>
+        <th>EMPLOYEE SURNAME</th>
+        <th>IMAGE</th>
+
+        <th>DEPARTMENT</th>
+        <th>UPDATE</th>
+        <th>SALES</th>
+    </tr>
+
+    @foreach (var employee in Model)
+    {
+        <tr>
+            <td>@employee.EmployeeId</td>
+            <td>@employee.EmployeeName</td>
+            <td>@employee.EmployeeSurname</td>
+            <td>@employee.EmployeeImage</td>
+            <td>@employee.Department.DepartmentName</td>
+            <td><a href="/Employee/EmployeeFind/@employee.EmployeeId" class="btn btn-info">UPDATE</a></td>
+            <td><a href="/Department/DepartmentEmployeeSale/@employee.EmployeeId" class="btn btn-default" style="background-color:lightcoral; color:white;">DETAIL</a></td>
+
+        </tr>
+    }
+</table>
+
+<a href="/Employee/EmployeeAdd" class="btn btn-success"><b>ADD NEW EMPLOYEE</b></a>
+
+

@@ -1,0 +1,41 @@
+﻿@using Online_Commercial_Authomation.Models.Classes
+@{
+    ViewBag.Title = "CurrentSale";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<h2>CURRENT SALE</h2>
+<br />
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Current Name: @ViewBag.currents</li>
+</ol>
+
+<table class="table table-condensed">
+    <tr>
+        <th>SALE ID</th>
+        <th>PRODUCT</th>
+        <th>EMPLOYEE</th>
+        <th>PRICE</th>
+        <th>NUMBER</th>
+        <th>TOTAL AMOUNT</th>
+        <th>DATE</th>
+        <th>PRINT</th>
+
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.SalesId</td>
+            <td>@x.Product.ProductName</td>
+            <td>@x.Employee.EmployeeName @x.Employee.EmployeeSurname</td>
+            <td>@x.Current.CurrentName  @x.Current.CurrentSurname</td>
+            <td>@x.Number</td>
+            <td>@x.TotalAmount</td>
+            <td>@x.Date</td>
+            <td><a href="#" class="btn btn-default" style="background-color: #FF6362 ">PRINT</a></td>
+
+        </tr>
+
+
+    }
+</table>
