@@ -76,10 +76,10 @@ namespace Online_Commercial_Authomation.Controllers
             return RedirectToAction("Index");
         }
 
-        //public ActionResult ProductList()
-        //{
-        //    var values = c.Products.ToList();
-        //    return View(values);
-        //}
+        public ActionResult ProductList()
+        {
+            var values = c.Products.ToList();
+            return View(values);
+        }
     }
 }

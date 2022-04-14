@@ -1,0 +1,40 @@
+﻿@using Online_Commercial_Authomation.Models.Classes
+@model List<SaleMove>
+@{
+    ViewBag.Title = "SaleDetail";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2> SALE DETAIL</h2>
+<br />
+
+
+<table class="table table-condensed">
+    <tr>
+        <th>SALE ID</th>
+        <th>PRODUCT</th>
+        <th>CURRENT</th>
+        <th>EMPLOYEE</th>
+        <th>PRICE</th>
+        <th>NUMBER</th>
+        <th>TOTAL AMOUNT</th>
+        <th>DATE</th>
+
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.SalesId</td>
+            <td>@x.Product.ProductName</td>
+            <td>@x.Current.CurrentName  @x.Current.CurrentSurname</td>
+            <td>@x.Employee.EmployeeName  @x.Employee.EmployeeSurname</td>
+            <td>@x.Price</td>
+            <td>@x.Number</td>
+            <td>@x.TotalAmount</td>
+            <td>@x.Date</td>
+
+        </tr>
+    }
+</table>
+<button class="btn btn-default" style="background-color: #FF6362 ">PRINT</button>

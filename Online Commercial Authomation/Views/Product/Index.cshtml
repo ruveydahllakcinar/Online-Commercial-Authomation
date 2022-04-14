@@ -5,42 +5,54 @@
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
-<br />
-<table class="table table-bordered">
-    <tr>
-        <th>ID</th>
-        <th>NAME</th>
-        <th> BRAND</th>
-        <th>STOCK</th>
-        <th>PURCHASE PRİCE</th>
-        <th>SALE PRİCE</th>
-        <th>CATEGORY</th>
-        <th>IMAGE</th>
-        <th>DELETE</th>
-        <th>UPDATE</th>
+<table id="tbl2" class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th> BRAND</th>
+            <th>STOCK</th>
+            <th>PURCHASE PRICE</th>
+            <th>SALE PRICE</th>
+            <th>CATEGORY</th>
+            <th>IMAGE</th>
+            <th>DELETE</th>
+            <th>UPDATE</th>
 
-    </tr>
-
+        </tr>
+    </thead>
     @foreach (var product in Model)
     {
-<tr>
-    <td>@product.ProductsId</td>
-    <td>@product.ProductName</td>
-    <td>@product.ProductBrand</td>
-    <td>@product.Stock</td>
-    <td>@product.PurchasePrice</td>
-    <td>@product.SalePrice</td>
-    <td>@product.Category.CategoryName</td>
-    <td>@product.ProductImage</td>
+        <tr>
+            <td>@product.ProductsId</td>
+            <td>@product.ProductName</td>
+            <td>@product.ProductBrand</td>
+            <td>@product.Stock</td>
+            <td>@product.PurchasePrice</td>
+            <td>@product.SalePrice</td>
+            <td>@product.Category.CategoryName</td>
+            <td>@product.ProductImage</td>
 
-    <td><a href="/Product/ProductDelete/@product.ProductsId" class="btn btn-danger">DELETE</a></td>
-    <td><a href="/Product/ProductFind/@product.ProductsId" class="btn btn-info">UPDATE</a></td>
+            <td><a href="/Product/ProductDelete/@product.ProductsId" class="btn btn-danger">DELETE</a></td>
+            <td><a href="/Product/ProductFind/@product.ProductsId" class="btn btn-info">UPDATE</a></td>
 
 
-</tr>
+        </tr>
     }
 
 </table>
 
 <a href="/Product/ProductAdd" class="btn btn-success"><b>ADD NEW PRODUCT</b></a>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+    $('#tbl2').dataTable({});
+</script>
 

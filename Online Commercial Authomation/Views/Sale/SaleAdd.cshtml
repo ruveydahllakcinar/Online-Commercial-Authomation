@@ -1,0 +1,32 @@
+﻿@model Online_Commercial_Authomation.Models.Classes.SaleMove
+@{
+    ViewBag.Title = "SaleAdd";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<h2>NEW SALES PAGE</h2>
+<br />
+
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.Product)
+    @Html.DropDownListFor(x => x.ProductsId, (List<SelectListItem>)ViewBag.vl1, new { @class = "form-control" })
+    <br />
+    @Html.Label("Current")
+    @Html.DropDownListFor(x => x.CurrentId, (List<SelectListItem>)ViewBag.vl2, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Employee)
+    @Html.DropDownListFor(x => x.EmployeeId, (List<SelectListItem>)ViewBag.vl3, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Number)
+    @Html.TextBoxFor(x => x.Number, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Price)
+    @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+    <br />
+  
+    @Html.LabelFor(x => x.TotalAmount)
+    @Html.TextBoxFor(x => x.TotalAmount, new { @class = "form-control" })
+
+    <br />
+    <button class="btn btn-warning">DO SALES</button>
+</form>
