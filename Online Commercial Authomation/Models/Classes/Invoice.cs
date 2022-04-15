@@ -21,7 +21,7 @@ namespace Online_Commercial_Authomation.Models.Classes
         [StringLength(6)]
         public string RowNumber { get; set; }/*Fatura Sıra Numarası*/
 
-
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime Date { get; set; }
 
 
@@ -29,7 +29,9 @@ namespace Online_Commercial_Authomation.Models.Classes
         [StringLength(60)]
         public string TaxAuthority { get; set; } /*Vergi Dairesi*/
 
-        public DateTime Time { get; set; }
+        [Column(TypeName = "Char")]
+        [StringLength(5)]
+        public string Time { get; set; }
 
         [Column(TypeName = "Varchar")]
         [StringLength(30)]
@@ -39,7 +41,7 @@ namespace Online_Commercial_Authomation.Models.Classes
         [StringLength(30)]
         public string Recipient { get; set; } /*Teslim Alan*/
 
-
+        public decimal Total { get; set; }
 
         public ICollection<InvoiceItem> InvoiceItems { get; set; }
     }

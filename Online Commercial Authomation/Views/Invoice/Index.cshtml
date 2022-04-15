@@ -1,0 +1,48 @@
+﻿@using Online_Commercial_Authomation.Models.Classes
+@model List<Invoice>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+<table class="table table-bordered" style="margin-top:20px">
+    <tr>
+        <th>ID</th>
+        <th>SERIAL NUMBER</th>
+        <th>ROW NUMBER</th>
+        <th>TAX AUTHORITY</th>
+        <th>DATE</th>
+        <th>TIME</th>
+        <th>SUBMITTER</th>
+        <th>RECIPIENT</th>
+        <th>TOTAL</th>
+        <th>UPDATE</th>
+        <th>DETAILS</th>
+    </tr>
+
+    @foreach (var invoice in Model)
+    {
+        <tr>
+            <td>@invoice.InvoicesId</td>
+            <td>@invoice.SerialNumber</td>
+            <td>@invoice.RowNumber</td>
+            <td>@invoice.TaxAuthority</td>
+            <td>@invoice.Date.ToString("dd/MM/yyyy")</td>
+            <td>@invoice.Time</td>
+
+            <td>@invoice.Submitter</td>
+            <td>@invoice.Recipient</td>
+            <td>@invoice.Total</td>
+            <td><a href="/Invoice/InvoiceFind/@invoice.InvoicesId" class="btn btn-info">UPDATE</a></td>
+            <td><a href="/Invoice/InvoiceDetail/@invoice.InvoicesId" class="btn btn-default" style="background-color:lightcoral; color:white;">DETAIL</a></td>
+
+        </tr>
+    }
+
+</table>
+
+<a href="/Invoice/InvoiceAdd/" class="btn btn-success"><b>ADD NEW INVOICE</b></a>
+
+
+

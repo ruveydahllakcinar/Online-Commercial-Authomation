@@ -1,0 +1,40 @@
+﻿@model Online_Commercial_Authomation.Models.Classes.Invoice
+@{
+    ViewBag.Title = "InvoiceFind";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>UPDATE INVOICE PAGE</h2>
+<br />
+
+@using (Html.BeginForm("InvoiceUpdate", "Invoice", FormMethod.Post))
+{
+<form class="form-group" method="post">
+    @Html.HiddenFor(x => x.InvoicesId)
+    @Html.LabelFor(x => x.SerialNumber)
+    @Html.TextBoxFor(x => x.SerialNumber, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.RowNumber)
+    @Html.TextBoxFor(x => x.RowNumber, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.TaxAuthority)
+    @Html.TextBoxFor(x => x.TaxAuthority, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Date)
+    @Html.TextBoxFor(x => x.Date, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Time)
+    @Html.TextBoxFor(x => x.Time, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Submitter)
+    @Html.TextBoxFor(x => x.Submitter, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Recipient)
+    @Html.TextBoxFor(x => x.Recipient, new { @class = "form-control" })
+    <br />
+
+    <button class="btn btn-warning">UPDATE INVOICE</button>
+</form>
+}
+

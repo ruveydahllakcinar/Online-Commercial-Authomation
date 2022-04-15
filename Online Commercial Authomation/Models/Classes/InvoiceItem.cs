@@ -11,13 +11,15 @@ namespace Online_Commercial_Authomation.Models.Classes
     {
         [Key]
         public int InvoiceItemId { get; set; }
+
         [Column(TypeName = "Varchar")]
         [StringLength(100)]
         public string Explanation { get; set; } /*Açıklama*/
         public int Quantity { get; set; }
         public decimal UnitPrice { get; set; }
         public decimal Amount { get; set; }
-        public Invoice Invoices { get; set; }
+        public int InvoicesId { get; set; }
+        public virtual Invoice Invoice { get; set; }
     }
 
 }

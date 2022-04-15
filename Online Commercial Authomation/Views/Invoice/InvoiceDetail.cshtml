@@ -1,0 +1,37 @@
+﻿@using Online_Commercial_Authomation.Models.Classes
+@model List<InvoiceItem>
+@{
+    ViewBag.Title = "InvoiceDetail";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<h2>INVOICES ITEM DETAIL PAGE</h2>
+<br />
+
+
+
+<table class="table table-hover">
+    <tr>
+        <th>INVOICES ID</th>
+        <th> EXPLANATION</th>
+        <th> QUANTITY</th>
+        <th>UNIT PRICE</th>
+        <th>AMOUNT</th>
+
+    </tr>
+    @foreach (var invoiceItem in Model)
+    {
+
+
+        <tr>
+            <td>@invoiceItem.InvoiceItemId</td>
+            <td>@invoiceItem.Explanation</td>
+            <td>@invoiceItem.Quantity</td>
+            <td>@invoiceItem.UnitPrice</td>
+            <td>@invoiceItem.Amount</td>
+        </tr>
+    }
+</table>
+
+
+<a href="/Invoice/NewItem" class="btn btn-default" style="background-color: #82589F; color:white;"><b>NEW INVOICE ITEM ENTRY</b> </a>
