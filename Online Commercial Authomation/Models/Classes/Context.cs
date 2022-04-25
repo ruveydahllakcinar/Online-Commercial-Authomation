@@ -18,6 +18,7 @@ namespace Online_Commercial_Authomation.Models.Classes
         public DbSet<Invoice> Invoices { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<SaleMove> SalesMoves { get; set; }
+        public DbSet<PDetail> Details { get; set; }
 
 
     }
