@@ -27,14 +27,14 @@ namespace Online_Commercial_Authomation.Controllers
                                            }).ToList();
             ViewBag.vl1 = value1;
             
-            return View();
+            return View("EmployeeList");
         }
         [HttpPost]
         public ActionResult EmployeeAdd(Employee employee)
         {
             c.Employees.Add(employee);
             c.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("EmployeeList");
         }
 
         public ActionResult EmployeeFind(int id)
@@ -57,8 +57,14 @@ namespace Online_Commercial_Authomation.Controllers
             employee.EmployeeImage = em.EmployeeImage;
             employee.DepartmentId = em.DepartmentId;
             c.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("EmployeeList");
 
         }
+        public ActionResult EmployeeList()
+        {
+            var values = c.Employees.ToList();
+            return View(values);
+        }
+             
     }
 }
