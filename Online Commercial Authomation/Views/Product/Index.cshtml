@@ -31,7 +31,10 @@
             <td>@product.PurchasePrice</td>
             <td>@product.SalePrice</td>
             <td>@product.Category.CategoryName</td>
-            <td>@product.ProductImage</td>
+            <td>
+                <img  src="@product.ProductImage"  style="border-radius: 50%; height: 100px; width: 100px; object-fit: cover; " />
+
+            </td>
 
             <td><a href="/Product/ProductDelete/@product.ProductsId" class="btn btn-danger">DELETE</a></td>
             <td><a href="/Product/ProductFind/@product.ProductsId" class="btn btn-info">UPDATE</a></td>

@@ -10,9 +10,13 @@ namespace Online_Commercial_Authomation.Models.Classes
     {
         [Key]
         public int SalesId { get; set; }
+
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime Date { get; set; }
         public int Number { get; set; } /*Adet*/
         public decimal Price { get; set; }
+
+        [Display(Name = "Total Amount")]
         public decimal TotalAmount { get; set; }
 
         public int ProductsId { get; set; }

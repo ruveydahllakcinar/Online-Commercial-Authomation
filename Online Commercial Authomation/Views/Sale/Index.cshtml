@@ -23,18 +23,18 @@
     </thead>
     @foreach (var salemove in Model)
     {
-        <tr>
-            <td>@salemove.SalesId</td>
-            <td>@salemove.Product.ProductName</td>
-            <td>@salemove.Current.CurrentName @salemove.Current.CurrentSurname</td>
-            <td>@salemove.Employee.EmployeeName @salemove.Employee.EmployeeSurname</td>
-            <td>@salemove.Number</td>
-            <td>@salemove.Price</td>
-            <td>@salemove.TotalAmount</td>
-            <td>@salemove.Date</td>
-            <td><a href="/Sale/SaleFind/@salemove.SalesId" class="btn btn-warning">UPDATE</a></td>
-            <td><a href="/Sale/SaleDetail/@salemove.SalesId" class="btn btn-default" style="background-color:lightcoral; color:white">DETAILS</a></td>
-        </tr>
+<tr>
+    <td>@salemove.SalesId</td>
+    <td>@salemove.Product.ProductName</td>
+    <td>@salemove.Current.CurrentName @salemove.Current.CurrentSurname</td>
+    <td>@salemove.Employee.EmployeeName @salemove.Employee.EmployeeSurname</td>
+    <td>@salemove.Number</td>
+    <td>@salemove.Price</td>
+    <td>@salemove.TotalAmount</td>
+    <td>@salemove.Date.ToString("dd/MM/yyyy")</td>
+    <td><a href="/Sale/SaleFind/@salemove.SalesId" class="btn btn-warning">UPDATE</a></td>
+    <td><a href="/Sale/SaleDetail/@salemove.SalesId" class="btn btn-default" style="background-color:lightcoral; color:white">DETAILS</a></td>
+</tr>
     }
 </table>
 <a href="/Sale/SaleAdd" class="btn btn-info">DO NEW SALES  </a>

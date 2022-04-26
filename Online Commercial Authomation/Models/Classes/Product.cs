@@ -14,14 +14,18 @@ namespace Online_Commercial_Authomation.Models.Classes
 
         [Column(TypeName = "Varchar")]
         [StringLength(30)]
+        [Display(Name = "Product Name")]
         public string ProductName { get; set; }
 
 
         [Column(TypeName = "Varchar")]
         [StringLength(30)]
+        [Display(Name = "Product Brand")]
         public string ProductBrand { get; set; } /*Marka*/
         public short Stock { get; set; }
+        [Display(Name = "Purchase Price")]
         public decimal PurchasePrice { get; set; } /*Alış Fiyatı*/
+        [Display(Name = "Sale Price")]
         public decimal SalePrice { get; set; } /*Satış Fiyatı*/
         public bool Situation { get; set; } /*Durum*/ /*Ürünün kritik seviyede olup olmadığını göstereceğiz*/
 
@@ -29,7 +33,9 @@ namespace Online_Commercial_Authomation.Models.Classes
 
         [Column(TypeName = "Varchar")]
         [StringLength(250)]
+        [Display(Name = "Product Image")]
         public string ProductImage { get; set; }
+       
         public int CategoryId { get; set; }
         public virtual Category Category { get; set; }
 

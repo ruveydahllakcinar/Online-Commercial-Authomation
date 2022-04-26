@@ -12,10 +12,12 @@ namespace Online_Commercial_Authomation.Models.Classes
         [Key]
         public int InvoicesId { get; set; }
 
+        [Display(Name = "Serial Number")]
         [Column(TypeName = "Char")]
         [StringLength(1)]
         public string SerialNumber { get; set; } /*Fatura Seri Numarası*/
 
+        [Display(Name = "Row Number")]
 
         [Column(TypeName = "Varchar")]
         [StringLength(6)]
@@ -24,7 +26,7 @@ namespace Online_Commercial_Authomation.Models.Classes
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime Date { get; set; }
 
-
+        [Display(Name = "Tax Authority")]
         [Column(TypeName = "Varchar")]
         [StringLength(60)]
         public string TaxAuthority { get; set; } /*Vergi Dairesi*/

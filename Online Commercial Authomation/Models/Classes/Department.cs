@@ -12,6 +12,7 @@ namespace Online_Commercial_Authomation.Models.Classes
     {
         [Key]
         public int DepartmentId { get; set; }
+        [Display(Name = "Department Name")]
         [Column(TypeName = "Varchar")]
         [StringLength(30)]
         public string DepartmentName { get; set; }

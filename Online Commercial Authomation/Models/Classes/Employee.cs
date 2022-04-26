@@ -12,13 +12,15 @@ namespace Online_Commercial_Authomation.Models.Classes
         [Key]
         public int EmployeeId { get; set; }
 
+        [Display(Name ="Employee Name")]
         [Column(TypeName = "Varchar")]
         [StringLength(30)]
         public string EmployeeName { get; set; }
-
+        [Display(Name = "Employee Surname")]
         [Column(TypeName = "Varchar")]
         [StringLength(30)]
         public string EmployeeSurname { get; set; }
+        [Display(Name = "Employee Image")]
 
         [Column(TypeName = "Varchar")]
         [StringLength(250)]
