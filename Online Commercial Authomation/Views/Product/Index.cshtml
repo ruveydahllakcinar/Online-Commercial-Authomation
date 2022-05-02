@@ -18,35 +18,33 @@
         <tr>
 
             <th>NAME</th>
-            <th> BRAND</th>
+            <th>BRAND</th>
             <th>STOCK</th>
             <th>PURCHASE PRICE</th>
             <th>SALE PRICE</th>
             <th>CATEGORY</th>
-
             <th>DELETE</th>
             <th>UPDATE</th>
+            <th>MAKE A SALE</th>
 
         </tr>
     </thead>
     @foreach (var product in Model)
     {
-        <tr>
+<tr>
 
-            <td>@product.ProductName</td>
-            <td>@product.ProductBrand</td>
-            <td>@product.Stock</td>
-            <td>@product.PurchasePrice ₺</td>
-            <td>@product.SalePrice ₺</td>
-            <td>@product.Category.CategoryName</td>
-
-
-            <td><a href="/Product/ProductDelete/@product.ProductsId" class="btn btn-danger">DELETE</a></td>
-            <td><a href="/Product/ProductFind/@product.ProductsId" class="btn btn-info">UPDATE</a></td>
+    <td>@product.ProductName</td>
+    <td>@product.ProductBrand</td>
+    <td>@product.Stock</td>
+    <td>@product.PurchasePrice ₺</td>
+    <td>@product.SalePrice ₺</td>
+    <td>@product.Category.CategoryName</td>
 
 
-
-        </tr>
+    <td><a href="/Product/ProductDelete/@product.ProductsId" class="btn btn-danger">DELETE</a></td>
+    <td><a href="/Product/ProductFind/@product.ProductsId" class="btn btn-info">UPDATE</a></td>
+    <td><a href="/Product/Makesale/@product.ProductsId" class="btn btn-default" style="background-color: #f78fb3;">MAKE A SALE</a></td>
+</tr>
     }
 
 </table>

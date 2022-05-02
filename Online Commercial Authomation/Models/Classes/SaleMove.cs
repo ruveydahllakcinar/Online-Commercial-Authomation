@@ -18,9 +18,11 @@ namespace Online_Commercial_Authomation.Models.Classes
 
         [Display(Name = "Total Amount")]
         public decimal TotalAmount { get; set; }
-
+        [Display(Name = "Products Id")]
         public int ProductsId { get; set; }
+        [Display(Name = "Current Id")]
         public int CurrentId { get; set; }
+        [Display(Name = "Employee Id")]
         public int EmployeeId { get; set; }
 
         public virtual Product Product { get; set; }

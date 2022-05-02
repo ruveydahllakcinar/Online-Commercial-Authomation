@@ -3,6 +3,7 @@
     ViewBag.Title = "CategoryAdd";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
+<script src="~/Scripts/jquery-3.4.1.js"></script>
 <br />
 <h2>NEW CATEGORY PAGE</h2>
 <br />
@@ -11,6 +12,12 @@
     @Html.LabelFor(x=>x.CategoryName)
     @Html.TextBoxFor(x=>x.CategoryName, new {@class = "form-control" })
     <br />
-    <button class="btn btn-warning">SAVE</button>
+    <button class="btn btn-warning" id="Btn1">SAVE</button>
+    <script>
+        $('#Btn1').click(function () {
+            alert("Category added succesfully")
+        });
+
+    </script>
 </form>
 

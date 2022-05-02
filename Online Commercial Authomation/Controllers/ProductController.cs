@@ -85,5 +85,33 @@ namespace Online_Commercial_Authomation.Controllers
             var values = c.Products.ToList();
             return View(values);
         }
+        [HttpGet]
+        public ActionResult MakeSale(int id)
+        {
+
+            List<SelectListItem> values1 = (from x in c.Employees.ToList()
+                                            select new SelectListItem
+                                            {
+                                                Text = x.EmployeeName + " " + x.EmployeeSurname,
+                                                Value = x.EmployeeId.ToString()
+                                            }).ToList();
+
+
+            ViewBag.vl1 = values1;
+            var values2 = c.Products.Find(id);
+            ViewBag.vl2 = values2.ProductsId;
+            ViewBag.vl3 = values2.SalePrice;
+
+            return View();
+        }
+        [HttpPost]
+        public ActionResult MakeSale(SaleMove sale)
+        {
+            sale.Date = DateTime.Parse(DateTime.Now.ToShortDateString());
+            c.SalesMoves.Add(sale);
+            c.SaveChanges();
+            return RedirectToAction("Index","Sale");
+        }
     }
+    
 }
