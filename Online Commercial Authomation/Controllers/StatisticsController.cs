@@ -45,8 +45,8 @@ namespace Online_Commercial_Authomation.Controllers
             DateTime today = DateTime.Today;
             var values15 = c.SalesMoves.Count(x => x.Date == today).ToString();
             ViewBag.v15 = values15;
-            //var values16 = c.SalesMoves.Where(x => x.Date == today).Sum(y => y.TotalAmount).ToString();
-            //ViewBag.v16 = values16;
+            var values16 = c.SalesMoves.Where(x => x.Date == today).Sum(y =>(decimal?) y.TotalAmount).ToString();
+            ViewBag.v16 = values16;
             return View();
         }
 

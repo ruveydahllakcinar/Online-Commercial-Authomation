@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -27,14 +28,22 @@ namespace Online_Commercial_Authomation.Controllers
                                            }).ToList();
             ViewBag.vl1 = value1;
             
-            return View("EmployeeList");
+            return View();
         }
         [HttpPost]
         public ActionResult EmployeeAdd(Employee employee)
         {
+            if (Request.Files.Count > 0)
+            {
+                string filename = Path.GetFileName(Request.Files[0].FileName);
+                string extension = Path.GetExtension(Request.Files[0].FileName); /*Dosya uzanstısı alınır*/
+                string href = "~/Image/" + filename + extension;
+                Request.Files[0].SaveAs(Server.MapPath(href));
+                employee.EmployeeImage = "/Image/" + filename + extension;
+            }
             c.Employees.Add(employee);
             c.SaveChanges();
-            return RedirectToAction("EmployeeList");
+            return RedirectToAction("Index");
         }
 
         public ActionResult EmployeeFind(int id)
@@ -55,9 +64,18 @@ namespace Online_Commercial_Authomation.Controllers
             employee.EmployeeName = em.EmployeeName;
             employee.EmployeeSurname = em.EmployeeSurname;
             employee.EmployeeImage = em.EmployeeImage;
+
+            if (Request.Files.Count > 0)
+            {
+                string filename = Path.GetFileName(Request.Files[0].FileName);
+                string extension = Path.GetExtension(Request.Files[0].FileName); /*Dosya uzanstısı alınır*/
+                string href = "~/Image/" + filename + extension;
+                Request.Files[0].SaveAs(Server.MapPath(href));
+                employee.EmployeeImage = "/Image/" + filename + extension;
+            }
             employee.DepartmentId = em.DepartmentId;
             c.SaveChanges();
-            return RedirectToAction("EmployeeList");
+            return RedirectToAction("Index");
 
         }
         public ActionResult EmployeeList()

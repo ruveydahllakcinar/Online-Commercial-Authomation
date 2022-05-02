@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Online_Commercial_Authomation.Models.Classes;
+using PagedList;
+using PagedList.Mvc;
 
 namespace Online_Commercial_Authomation.Controllers
 {
@@ -11,11 +13,13 @@ namespace Online_Commercial_Authomation.Controllers
     {
         // GET: Product
         Context c = new Context();
-        public ActionResult Index()
-        {
-            var products = c.Products.Where(x => x.Situation == true).ToList();
-            return View(products);
+        public ActionResult Index(string p)
+        { var products = from x in c.Products select x; 
+            if (!string.IsNullOrEmpty(p))
+            { products = products.Where(y => y.ProductName.Contains(p)); } 
+            return View(products.ToList());
         }
+
         [HttpGet]
         public ActionResult ProductAdd()
         {

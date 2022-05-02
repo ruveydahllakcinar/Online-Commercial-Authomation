@@ -19,7 +19,7 @@ namespace Online_Commercial_Authomation.Controllers
         [HttpGet]
         public ActionResult DepartmentAdd()
         {
-            //c.Categories.Add();
+           
             return View();
         }
         [HttpPost]

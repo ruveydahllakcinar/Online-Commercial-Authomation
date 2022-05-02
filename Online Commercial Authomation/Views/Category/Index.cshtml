@@ -1,5 +1,7 @@
 ﻿@using Online_Commercial_Authomation.Models.Classes
-@model List<Category>
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Category>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
@@ -7,7 +9,7 @@
 
 <table class="table table-bordered" style="margin-top:20px">
     <tr>
-        <th>ID</th>
+
         <th>CATEGORY NAME</th>
         <th>DELETE</th>
         <th>UPDATE</th>
@@ -16,7 +18,7 @@
     @foreach (var category in Model)
     {
         <tr>
-            <td>@category.CategoryId</td>
+
             <td>@category.CategoryName</td>
             <td><a href="/Category/CategoryDelete/@category.CategoryId" class="btn btn-danger">DELETE</a></td>
             <td><a href="/Category/CategoryFind/@category.CategoryId" class="btn btn-info">UPDATE</a></td>
@@ -25,6 +27,6 @@
     }
 
 </table>
-
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
 
 <a href="/Category/CategoryAdd" class="btn btn-success"><b>ADD NEW CATEGORY</b></a>

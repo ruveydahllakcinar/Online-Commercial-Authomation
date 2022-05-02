@@ -29,6 +29,10 @@ namespace Online_Commercial_Authomation.Models.Classes
         [Column(TypeName = "Varchar")]
         [StringLength(50)]
         public string CurrentMail { get; set; }
+        [Display(Name = "Current Mail")]
+        [Column(TypeName = "Varchar")]
+        [StringLength(20)]
+        public string CurrentPassword { get; set; }
         public bool Situation { get; set; }
 
         public ICollection<SaleMove> SaleMoves { get; set; }

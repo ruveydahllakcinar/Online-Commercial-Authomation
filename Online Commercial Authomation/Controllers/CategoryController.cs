@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Online_Commercial_Authomation.Models.Classes;
+using PagedList;
+using PagedList.Mvc;
 
 namespace Online_Commercial_Authomation.Controllers
 {
@@ -11,10 +13,10 @@ namespace Online_Commercial_Authomation.Controllers
     {
         // GET: Category
         Context c = new Context();
-        public ActionResult Index()
+        public ActionResult Index(int page =1)
         {
-            var degerler = c.Categories.ToList();
-            return View(degerler);
+            var values = c.Categories.ToList().ToPagedList(page, 4);
+            return View(values);
         }
 
         [HttpGet]

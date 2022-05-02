@@ -13,7 +13,7 @@
 
 <table class="table table-condensed">
     <tr>
-        <th>SALE ID</th>
+
         <th>PRODUCT</th>
         <th>CURRENT</th>
         <th>NUMBER</th>
@@ -24,18 +24,17 @@
     </tr>
     @foreach (var x in Model)
     {
-<tr>
-    <td>@x.SalesId</td>
-    <td>@x.Product.ProductName</td>
-    <td>@x.Current.CurrentName  @x.Current.CurrentSurname</td>
-    <td>@x.Price</td>
-    <td>@x.Number</td>
-    <td>@x.TotalAmount</td>
-    <td>@x.Date</td>
-    <td><a href="#" class="btn btn-default" style="background-color: #FF6362 ">PRINT</a></td>
+        <tr>
 
-</tr>
+            <td>@x.Product.ProductName</td>
+            <td>@x.Current.CurrentName  @x.Current.CurrentSurname</td>
+            <td>@x.Price ₺</td>
+            <td>@x.Number</td>
+            <td>@x.TotalAmount</td>
+            <td>@x.Date</td>
+            <td><a href="#" class="btn btn-default" style="background-color: #FF6362 ">PRINT</a></td>
 
+        </tr>
 
-     }
+    }
 </table>

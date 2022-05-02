@@ -1,0 +1,27 @@
+﻿@using Online_Commercial_Authomation.Models.Classes
+@model List<SaleMove>
+@{
+    ViewBag.Title = "MyOrders";
+    Layout = "~/Views/Shared/_CurrentLayout.cshtml";
+}
+
+<h2>My Orders History</h2>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Date</th>
+    </tr>
+
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.Product.ProductName</td>
+            <td>@x.Price</td>
+            <td>@Convert.ToDateTime(x.Date).ToString("dd/MM/yyyy")</td>
+            
+        </tr>
+    }
+</table>
+

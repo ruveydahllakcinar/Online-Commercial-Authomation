@@ -15,9 +15,9 @@
 
 <table class="table table-hover">
     <tr>
-        <th>EMPLOYEE ID</th>
-        <th> NAME</th>
-        <th> SURNAME</th>
+      
+        <th>EMPLOYEE</th>
+        
         <th>IMAGE</th>
         <th>SALES</th>
 
@@ -26,12 +26,15 @@
     {
 
 
-        <tr>
-            <td>@employee.EmployeeId</td>
-            <td>@employee.EmployeeName</td>
-            <td>@employee.EmployeeSurname</td>
-            <td>@employee.EmployeeImage</td>
-            <td><a href="/Department/DepartmentEmployeeSale/@employee.EmployeeId" class="btn btn-default" style="background-color:#41b7b7">SALES</a></td>
-        </tr>
+<tr>
+   
+    <td>@employee.EmployeeName @employee.EmployeeSurname</td>
+   
+    <td>
+        <img src="@employee.EmployeeImage" style="border-radius: 50%; height: 100px; width: 100px; object-fit: cover; " />
+
+    </td>
+    <td><a href="/Department/DepartmentEmployeeSale/@employee.EmployeeId" class="btn btn-default" style="background-color:#41b7b7">SALES</a></td>
+</tr>
     }
 </table>

@@ -8,29 +8,31 @@
 <h2>Employee Update</h2>
 <br />
 
-@using (Html.BeginForm("EmployeeUpdate", "Employee", FormMethod.Post))
+@using (Html.BeginForm("EmployeeUpdate", "Employee", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    <div class="form-group">
-        @Html.HiddenFor(x => x.EmployeeId)
-        @Html.LabelFor(x => x.EmployeeName)
-        @Html.TextBoxFor(x => x.EmployeeName, new { @class = "form-control" })
-        <br />
+    {
+<div class="form-group">
+    @Html.HiddenFor(x => x.EmployeeId)
+    @Html.LabelFor(x => x.EmployeeName)
+    @Html.TextBoxFor(x => x.EmployeeName, new { @class = "form-control" })
+    <br />
 
-        @Html.LabelFor(x => x.EmployeeSurname)
-        @Html.TextBoxFor(x => x.EmployeeSurname, new { @class = "form-control" })
+    @Html.LabelFor(x => x.EmployeeSurname)
+    @Html.TextBoxFor(x => x.EmployeeSurname, new { @class = "form-control" })
 
-        <br />
+    <br />
 
-        @Html.LabelFor(x => x.EmployeeImage)
-        @Html.TextBoxFor(x => x.EmployeeImage, new { @class = "form-control" })
-        <br />
+    @Html.LabelFor(x => x.EmployeeImage)
+    <input type="file" name="EmployeeImage" />
+    <br />
 
-        @Html.LabelFor(x => x.Department)
-        @Html.DropDownListFor(x => x.DepartmentId,(List<SelectListItem>)ViewBag.vl1, new { @class ="form-control" })
-        <br />
+    @Html.LabelFor(x => x.Department)
+    @Html.DropDownListFor(x => x.DepartmentId, (List<SelectListItem>)ViewBag.vl1, new { @class = "form-control" })
+    <br />
 
-    </div>
+</div>
 
-    <button class="btn btn-warning">UPDATE</button>
+        <button class="btn btn-warning">UPDATE</button>
+    }
+
 }
-
