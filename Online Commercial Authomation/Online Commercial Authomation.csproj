@@ -61,6 +61,9 @@
     <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="QRCoder">
+      <HintPath>..\..\..\..\Downloads\QRCoder.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -138,6 +141,7 @@
     <Compile Include="Controllers\AlertsController.cs" />
     <Compile Include="Controllers\CargoController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\ChartsController.cs" />
     <Compile Include="Controllers\CurrentController.cs" />
     <Compile Include="Controllers\CurrentPanelController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
@@ -148,6 +152,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ProductDetailController.cs" />
+    <Compile Include="Controllers\QRController.cs" />
     <Compile Include="Controllers\SaleController.cs" />
     <Compile Include="Controllers\StatisticsController.cs" />
     <Compile Include="Controllers\TodoListController.cs" />
@@ -2932,6 +2937,10 @@
     <Content Include="Views\Cargo\Index.cshtml" />
     <Content Include="Views\Cargo\CargoAdd.cshtml" />
     <Content Include="Views\Cargo\CargoTracking.cshtml" />
+    <Content Include="Views\QR\Index.cshtml" />
+    <Content Include="Views\Charts\Index.cshtml" />
+    <Content Include="Views\Charts\Index2.cshtml" />
+    <Content Include="Views\Charts\Index3.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
