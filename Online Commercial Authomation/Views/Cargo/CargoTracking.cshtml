@@ -1,0 +1,30 @@
+﻿@using Online_Commercial_Authomation.Models.Classes
+@model List<CargoTracking>
+@{
+    ViewBag.Title = "CargoTracking";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>CargoTracking</h2>
+<br />
+
+
+<table class="table table-striped">
+
+    <tr>
+        <th>EXPLANATION</th>
+        <th>DATE</th>
+
+
+
+    </tr>
+    @foreach (var cargoTracking in Model)
+    {
+        <tr>
+            <td>@cargoTracking.Explanation</td>
+            <td>@cargoTracking.Date</td>
+           
+        </tr>
+    }
+
+</table>

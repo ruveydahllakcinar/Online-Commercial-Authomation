@@ -14,7 +14,8 @@ namespace Online_Commercial_Authomation.Controllers
         // GET: Product
         Context c = new Context();
         public ActionResult Index(string p)
-        { var products = from x in c.Products select x; 
+        { 
+            var products = from x in c.Products select x; 
             if (!string.IsNullOrEmpty(p))
             { products = products.Where(y => y.ProductName.Contains(p)); } 
             return View(products.ToList());

@@ -20,6 +20,8 @@ namespace Online_Commercial_Authomation.Models.Classes
         public DbSet<SaleMove> SalesMoves { get; set; }
         public DbSet<PDetail> Details { get; set; }
         public DbSet<Todolist> Todolists { get; set; }
+        public DbSet<CargoDetail> CargoDetails { get; set; }
+        public DbSet<CargoTracking> CargoTrackings { get; set; }
 
 
     }
