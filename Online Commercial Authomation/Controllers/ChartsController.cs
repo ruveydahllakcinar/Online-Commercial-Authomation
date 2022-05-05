@@ -1,5 +1,6 @@
 ﻿using Online_Commercial_Authomation.Models.Classes;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Helpers;
 using System.Web.Mvc;
@@ -35,6 +36,52 @@ namespace Online_Commercial_Authomation.Controllers
             return File(chart.ToWebImage().GetBytes(), "image/jpeg");
         }
 
+        public ActionResult Index4()
+        {
+            return View();
+        }
+        public ActionResult VisualizeProductResult()
+        {
+            return Json(ProductList(), JsonRequestBehavior.AllowGet);
+        }
+        public List<Class1> ProductList()
+        {
+            List<Class1> cls = new List<Class1>();
+            cls.Add(new Class1()
+            {
+                ProductName="Computer",
+                Stock =120
+            });
+            cls.Add(new Class1()
+            {
+                ProductName = "Fridge",
+                Stock = 200
+            });
+            cls.Add(new Class1()
+            {
+                ProductName = "Washing Machine",
+                Stock = 70
+            });
+            cls.Add(new Class1()
+            {
+                ProductName = "Computer",
+                Stock = 120
+            });
+            cls.Add(new Class1()
+            {
+                ProductName = "Furniture",
+                Stock = 20
+            });
+            cls.Add(new Class1()
+            {
+                ProductName = "Small Appliances",
+                Stock = 150
+            });
+            return cls;
+        }
 
     }
+
+
+
 }
