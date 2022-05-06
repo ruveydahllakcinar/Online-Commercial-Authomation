@@ -22,6 +22,7 @@ namespace Online_Commercial_Authomation.Models.Classes
         public DbSet<Todolist> Todolists { get; set; }
         public DbSet<CargoDetail> CargoDetails { get; set; }
         public DbSet<CargoTracking> CargoTrackings { get; set; }
+        public DbSet<Message> Messages { get; set; }
 
 
     }

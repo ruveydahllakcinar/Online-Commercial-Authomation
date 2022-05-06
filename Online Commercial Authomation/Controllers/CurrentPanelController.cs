@@ -27,5 +27,21 @@ namespace Online_Commercial_Authomation.Controllers
             var values = c.SalesMoves.Where(x => x.CurrentId == id).ToList();
             return View(values);
         }
+        public ActionResult IncomingMessage()
+        {
+            var mail = (string)Session["CurrentMail"];
+            var messages = c.Messages.Where(x=>x.Buyer==mail).ToList();
+            return View(messages);
+        }
+        //[HttpGet]
+        //public ActionResult NewMessage()
+        //{
+        //    return View();
+        //}
+        //[HttpPost]
+        //public ActionResult NewMessage()
+        //{
+        //    return View();
+        //}
     }
 }

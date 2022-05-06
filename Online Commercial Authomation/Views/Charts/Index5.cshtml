@@ -1,13 +1,14 @@
 ﻿
 @{
-    ViewBag.Title = "Index4";
+    ViewBag.Title = "Index5";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
 <!DOCTYPE html>
 
 <html lang="en">
-
+<br />
+<h2>"Product- Stock Charts"</h2>
 <head>
 
     <title>Result Visualization</title>
@@ -29,7 +30,7 @@
 
                 contentType: "application/json",
 
-                url: '@Url.Action("VisualizeProductResult", "Charts")',
+                url: '@Url.Action("VisualizeProductResult2", "Charts")',
 
                 success: function (result) {
 
@@ -67,7 +68,7 @@
 
             $.each(result, function (i, obj) {
 
-                dataArray.push([obj.ProductName, obj.Stock]);
+                dataArray.push([obj.prdt, obj.stck]);
 
             });
 
@@ -77,11 +78,9 @@
 
             var columnChartOptions = {
 
-                title: "Product- Stock Charts",
+                width: 1200,
 
-                width: 1000,
-
-                height: 400,
+                height: 800,
 
                 bar: { groupWidth: "20%" },
 

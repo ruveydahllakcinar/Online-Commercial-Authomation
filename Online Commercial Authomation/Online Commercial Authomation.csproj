@@ -168,18 +168,20 @@
     <Compile Include="Models\Classes\CargoDetail.cs" />
     <Compile Include="Models\Classes\CargoTracking.cs" />
     <Compile Include="Models\Classes\Category.cs" />
-    <Compile Include="Models\Classes\Class1.cs" />
+    <Compile Include="Models\Classes\GoogleChart.cs" />
     <Compile Include="Models\Classes\Context.cs" />
     <Compile Include="Models\Classes\Current.cs" />
     <Compile Include="Models\Classes\Department.cs" />
     <Compile Include="Models\Classes\Employee.cs" />
     <Compile Include="Models\Classes\Expense.cs" />
+    <Compile Include="Models\Classes\GoogleChart2.cs" />
     <Compile Include="Models\Classes\GroupClass.cs" />
     <Compile Include="Models\Classes\GroupClass2.cs" />
     <Compile Include="Models\Classes\GroupClass3.cs" />
     <Compile Include="Models\Classes\Invoice.cs" />
     <Compile Include="Models\Classes\InvoiceItem.cs" />
     <Compile Include="Models\Classes\keyAttribute.cs" />
+    <Compile Include="Models\Classes\Message.cs" />
     <Compile Include="Models\Classes\PDetail.cs" />
     <Compile Include="Models\Classes\Product.cs" />
     <Compile Include="Models\Classes\ProductDetail.cs" />
@@ -2943,9 +2945,12 @@
     <Content Include="Views\Charts\Index2.cshtml" />
     <Content Include="Views\Charts\Index3.cshtml" />
     <Content Include="Views\Charts\Index4.cshtml" />
+    <Content Include="Views\Charts\Index5.cshtml" />
+    <Content Include="Views\CurrentPanel\IncomingMessage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Message\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

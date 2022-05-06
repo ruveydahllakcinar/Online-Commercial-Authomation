@@ -10,6 +10,7 @@ namespace Online_Commercial_Authomation.Controllers
     public class ChartsController : Controller
     {
         // GET: Charts
+        Context c = new Context();
         public ActionResult Index()
         {
             return View();
@@ -23,7 +24,7 @@ namespace Online_Commercial_Authomation.Controllers
 
 
         }
-        Context c = new Context();
+        
 
         public ActionResult Index3()
         {
@@ -44,44 +45,67 @@ namespace Online_Commercial_Authomation.Controllers
         {
             return Json(ProductList(), JsonRequestBehavior.AllowGet);
         }
-        public List<Class1> ProductList()
+        public List<GoogleChart> ProductList()
         {
-            List<Class1> cls = new List<Class1>();
-            cls.Add(new Class1()
+            List<GoogleChart> cls = new List<GoogleChart>();
+            cls.Add(new GoogleChart()
             {
                 ProductName="Computer",
                 Stock =120
             });
-            cls.Add(new Class1()
+            cls.Add(new GoogleChart()
             {
                 ProductName = "Fridge",
                 Stock = 200
             });
-            cls.Add(new Class1()
+            cls.Add(new GoogleChart()
             {
                 ProductName = "Washing Machine",
                 Stock = 70
             });
-            cls.Add(new Class1()
+            cls.Add(new GoogleChart()
             {
                 ProductName = "Computer",
                 Stock = 120
             });
-            cls.Add(new Class1()
+            cls.Add(new GoogleChart()
             {
                 ProductName = "Furniture",
                 Stock = 20
             });
-            cls.Add(new Class1()
+            cls.Add(new GoogleChart()
             {
                 ProductName = "Small Appliances",
                 Stock = 150
             });
             return cls;
         }
+        public ActionResult Index5()
+        {
+            return View();
+        }
+        public ActionResult VisualizeProductResult2()
+        {
+            return Json(ProductList2(), JsonRequestBehavior.AllowGet);
+        }
 
+
+        public List<GoogleChart2> ProductList2()
+        {
+            List<GoogleChart2> chart = new List<GoogleChart2>();
+            using (var c = new Context())
+            {
+                chart = c.Products.Select(x => new GoogleChart2
+                {
+                    prdt = x.ProductName,
+                    stck = x.Stock
+                }).ToList();
+            }
+
+
+            return chart;
+        }
     }
 
-
-
 }
+
