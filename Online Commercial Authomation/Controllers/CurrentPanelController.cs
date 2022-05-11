@@ -31,6 +31,8 @@ namespace Online_Commercial_Authomation.Controllers
         {
             var mail = (string)Session["CurrentMail"];
             var messages = c.Messages.Where(x=>x.Buyer==mail).ToList();
+            var inboxnumber = c.Messages.Count(x => x.Buyer == mail).ToString();
+            ViewBag.inbox = inboxnumber;
             return View(messages);
         }
         //[HttpGet]
