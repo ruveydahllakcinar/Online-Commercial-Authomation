@@ -1,9 +1,11 @@
-﻿@using Online_Commercial_Authomation.Models.Classes
-@model List<Message>
+﻿
 @{
-    ViewBag.Title = "IncomingMessage";
+    ViewBag.Title = "SentMessage";
     Layout = "~/Views/Shared/_CurrentLayout.cshtml";
 }
+
+<h2>SentMessage</h2>
+
 
 <!DOCTYPE html>
 
@@ -32,7 +34,7 @@
 
                 <div class="col-sm-6">
 
-                
+
                 </div>
 
             </div>
@@ -79,9 +81,9 @@
 
                                     <i class="fas fa-inbox"></i> Inbox
 
-                                    <span class="badge bg-default float-right" style="background-color: #10ac84; color:black;"> @ViewBag.inbox</span> 
+                                    <span class="badge bg-default float-right" style="background-color: #10ac84; color:black;"> @ViewBag.inbox</span>
 
-                                    
+
                                 </a>
 
                             </li>
@@ -101,7 +103,7 @@
 
                                 <a href="#" class="nav-link">
 
-                                    <i class="far fa-file-alt"></i> Drafts 
+                                    <i class="far fa-file-alt"></i> Drafts
                                     <span class="badge bg-default float-right" style="background-color: #7d5fff; color: black; ">3</span>
 
                                 </a>
@@ -294,7 +296,7 @@
                         <div class="table-responsive mailbox-messages">
 
                             <table class="table table-hover table-striped">
-                               
+
                                 <tbody>
                                     @foreach (var message in Model)
                                     {
@@ -314,22 +316,22 @@
 
                                             <td class="mailbox-star"><a href="#"><i class="fas fa-star text-warning"></i></a></td>
 
-                                            <td class="mailbox-name"><a href="/CurrentPanel/MessageDetail/@message.MessageId">@message.Sender</a></td>
+                                            <td class="mailbox-name"><a href="read-mail.html">@message.Buyer</a></td>
 
                                             <td class="mailbox-subject">
 
-                                                <b>@message.Subject</b> @message.Contents.Substring(0,40).ToString()...
+                                                <b>@message.Subject</b> @message.Contents.Substring(0, 40).ToString()...
 
                                             </td>
 
                                             <td class="mailbox-attachment"></td>
 
                                             <td class="mailbox-date">@message.Date.ToString("dd/MM/yyyy")</td>
-                                            
+
                                         </tr>
                                     }
-                                    
-                                    </tbody>
+
+                                </tbody>
 
                             </table>
 

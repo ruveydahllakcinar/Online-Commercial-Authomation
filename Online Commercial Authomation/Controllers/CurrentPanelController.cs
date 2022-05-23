@@ -33,17 +33,51 @@ namespace Online_Commercial_Authomation.Controllers
             var messages = c.Messages.Where(x=>x.Buyer==mail).ToList();
             var inboxnumber = c.Messages.Count(x => x.Buyer == mail).ToString();
             ViewBag.inbox = inboxnumber;
+            var sentnumber = c.Messages.Count(x => x.Sender == mail).ToString();
+            ViewBag.sent = sentnumber;
             return View(messages);
         }
-        //[HttpGet]
-        //public ActionResult NewMessage()
-        //{
-        //    return View();
-        //}
-        //[HttpPost]
-        //public ActionResult NewMessage()
-        //{
-        //    return View();
-        //}
+        public ActionResult SentMessage()
+        {
+            var mail = (string)Session["CurrentMail"];
+            var messages = c.Messages.Where(x => x.Sender == mail).ToList();
+            var inboxnumber = c.Messages.Count(x => x.Buyer == mail).ToString();
+            ViewBag.inbox = inboxnumber;
+            var sentnumber = c.Messages.Count(x => x.Sender == mail).ToString();
+            ViewBag.sent = sentnumber;
+            return View(messages);
+        }
+        public ActionResult MessageDetail(int id)
+        {
+            var values = c.Messages.Where(x => x.MessageId == id).ToList();
+            var mail = (string)Session["CurrentMail"];
+            var messages = c.Messages.Where(x => x.Sender == mail).ToList();
+            var inboxnumber = c.Messages.Count(x => x.Buyer == mail).ToString();
+            ViewBag.inbox = inboxnumber;
+            var sentnumber = c.Messages.Count(x => x.Sender == mail).ToString();
+            ViewBag.sent = sentnumber;
+            return View(messages);
+        }
+        [HttpGet]
+        public ActionResult NewMessage()
+        {
+            var mail = (string)Session["CurrentMail"];
+            var messages = c.Messages.Where(x => x.Sender == mail).ToList();
+            var inboxnumber = c.Messages.Count(x => x.Buyer == mail).ToString();
+            ViewBag.inbox = inboxnumber;
+            var sentnumber = c.Messages.Count(x => x.Sender == mail).ToString();
+            ViewBag.sent = sentnumber;
+            return View(messages);
+        }
+        [HttpPost]
+        public ActionResult NewMessage(Message message)
+        {
+            var mail = (string)Session["CurrentMail"];
+            message.Date = DateTime.Parse(DateTime.Now.ToShortDateString());
+            message.Sender = mail;
+            c.Messages.Add(message);
+            c.SaveChanges();
+            return View();
+        }
     }
 }
