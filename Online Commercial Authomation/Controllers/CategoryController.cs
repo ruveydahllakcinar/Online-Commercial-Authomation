@@ -53,6 +53,28 @@ namespace Online_Commercial_Authomation.Controllers
             c.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult Cascading()
+        {
+
+            Cascading cs = new Cascading();
+            cs.Categories = new SelectList(c.Categories, "CategoryId", "CategoryName");
+            cs.Products = new SelectList(c.Products, "ProductsId", "ProductName");
+            return View(cs);
+        }
+
+        public JsonResult ProductBring(int p)
+        {
+            var productlist = (from x in c.Products
+                               join y in c.Categories on x.Category.CategoryId equals y.CategoryId
+                               where x.Category.CategoryId == p
+                               select new
+                               {
+                                   Text = x.ProductName,
+                                   Value = x.ProductsId.ToString()
+                               }).ToList();
+
+            return Json(productlist, JsonRequestBehavior.AllowGet);
+        }
     }
 
 }

@@ -1,0 +1,58 @@
+﻿@model Online_Commercial_Authomation.Models.Classes.Cascading
+@{
+    ViewBag.Title = "Cascading";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<div>
+    <h2>Categories- Products</h2>
+</div>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+<script>
+
+    $(function () {
+
+        $('#DrpCategory').change(function () {
+
+            var id = $('#DrpCategory').val();
+
+            $.ajax({
+
+                url: '/Category/ProductBring',
+
+                data: { p: id },
+
+                type: "POST",
+
+                dataType: "Json",
+
+                success: function (data) {
+
+                    console.log(data);
+
+                    $('#DrpProduct').empty();
+
+                    for (var i = 0; i < data.length; i++) {
+
+                        $('#DrpProduct').append("<option value='" + data[i].Value + "'>" + data[i].Text + "</Option>");
+
+                    }
+
+                }
+
+            });
+
+        });
+
+    });
+
+</script>
+<div>
+    @Html.Label("Categories")
+    @Html.DropDownList("DrpCategory", Model.Categories, "----Choose Categories----", new { @class = "form-control" })
+    <br />
+    @Html.Label("Products")
+    @Html.DropDownList("DrpProduct", Model.Products, "----Choose Products----", new { @class = "form-control" })
+
+</div>

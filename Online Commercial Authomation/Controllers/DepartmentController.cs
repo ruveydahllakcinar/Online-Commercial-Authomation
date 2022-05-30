@@ -7,6 +7,7 @@ using Online_Commercial_Authomation.Models.Classes;
 
 namespace Online_Commercial_Authomation.Controllers
 {
+    [Authorize]
     public class DepartmentController : Controller
     {
         // GET: Department
@@ -17,12 +18,14 @@ namespace Online_Commercial_Authomation.Controllers
             return View(values);
         }
         [HttpGet]
+   
         public ActionResult DepartmentAdd()
         {
            
             return View();
         }
         [HttpPost]
+        
         public ActionResult DepartmentAdd(Department department)
         {
             c.Departments.Add(department);

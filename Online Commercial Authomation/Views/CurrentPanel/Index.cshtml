@@ -1,29 +1,309 @@
-﻿@model Online_Commercial_Authomation.Models.Classes.Current
+﻿@using Online_Commercial_Authomation.Models.Classes
+@model List<Message>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_CurrentLayout.cshtml";
 }
 
-<h2>Current Informations Panel</h2>
+<!DOCTYPE html>
 
-@using (Html.BeginForm("Index2", "CurrentPanel", FormMethod.Post))
-{
-<table class="table table-hover">
-    <tr>
-        <td><label>Mail Adress: @HttpContext.Current.User.Identity.Name</label> </td>
-    </tr>
-    <tr>
-        <td>@Html.TextBoxFor(x => x.CurrentName, new { @class = "form-control" })</td>
-    </tr>
-    <tr>
-        <td>@Html.TextBoxFor(x => x.CurrentSurname, new { @class = "form-control" })</td>
-    </tr>
-    <tr>
-        <td>@Html.TextBoxFor(x => x.CurrentCity, new { @class = "form-control" })</td>
-    </tr>
-    <tr>
-        <td>@Html.TextBoxFor(x => x.CurrentPassword, new { @class = "form-control" })</td>
-    </tr>
-</table>
-    <button class="btn btn-warning">UPDATE INFORMATIONS</button>
-}
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title> BRTECH | User Profile</title>
+
+    <!-- Tell the browser to be responsive to screen width -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet" href="~/Admin/plugins/fontawesome-free/css/all.min.css">
+
+    <!-- Ionicons -->
+
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+    <!-- Theme style -->
+
+    <link rel="stylesheet" href="~/Admin/dist/css/adminlte.min.css">
+
+    <!-- Google Font: Source Sans Pro -->
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+</head>
+
+<body class="hold-transition sidebar-mini">
+
+    <div class="wrapper">
+
+        <!-- Navbar -->
+        <!-- /.navbar -->
+        <!-- Content Wrapper. Contains page content -->
+        <!-- Content Header (Page header) -->
+
+        <section class="content-header">
+
+            <div class="container-fluid">
+
+                <div class="row mb-2">
+
+                    <div class="col-sm-6">
+
+                        <h1>Profile</h1>
+
+                    </div>
+                </div>
+
+            </div><!-- /.container-fluid -->
+
+        </section>
+
+        <!-- Main content -->
+
+        <section class="content">
+
+            <div class="container-fluid">
+
+                <div class="row">
+
+                    <div class="col-md-3">
+
+                        <!-- Profile Image -->
+
+                        <div class="card card-primary card-outline">
+
+                            <div class="card-body box-profile">
+
+                                <div class="text-center">
+
+                                    <img class="profile-user-img img-fluid img-circle"
+                                         src="~/Admin/dist/img/Customer-PNG-Photos.png"
+                                         alt="User profile picture">
+
+                                </div>
+
+
+                                <h3 class="profile-username text-center">@ViewBag.namesurname</h3>
+
+                                <p class="text-muted text-center">mail</p>
+
+
+                                <ul class="list-group list-group-unbordered mb-3">
+
+                                    <li class="list-group-item">
+
+                                        <b>Total Sales:</b> <a class="float-right">@ViewBag.totalsale</a>
+
+                                    </li>
+
+                                    <li class="list-group-item">
+
+                                        <b>Total Amount:</b> <a class="float-right">@ViewBag.totalamount ₺</a>
+
+                                    </li>
+
+                                    <li class="list-group-item">
+                                    <li class="list-group-item">
+
+                                        <b>Number Of Total</b> <a class="float-right">@ViewBag.numberoftotal</a>
+
+                                    </li>
+
+                                </ul>
+
+                                <a href="/CurrentPanel/CargoTracking" class="btn btn-primary btn-block"><b>Cargo Tracking</b></a>
+
+                            </div>
+
+                            <!-- /.card-body -->
+
+                        </div>
+
+                        <!-- /.card -->
+                        <!-- About Me Box -->
+
+                        <div class="card card-primary">
+
+                            <div class="card-header">
+
+                                <h3 class="card-title">About Me</h3>
+
+                            </div>
+
+                            <!-- /.card-header -->
+                            @foreach (var about in Model)
+                            {
+
+                                <div class="card-body">
+
+                                    <strong><i class="fas fa-book mr-1"></i> Job</strong>
+
+                                    <p class="text-muted">
+
+                                        Computer Engineer
+
+                                    </p>
+
+                                    <hr>
+
+                                    <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
+
+                                    <p class="text-muted">City</p>
+
+                                    <hr>
+
+                                    <strong><i class="fas fa-map-marker-alt mr-1"></i> Phone</strong>
+
+                                    <p class="text-muted">(545) 201 123 7465</p>
+
+                                    <hr>
+
+                                    <strong><i class="far fa-file-alt mr-1"></i> Notes</strong>
+
+                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
+
+                                </div>
+                            }
+                            <!-- /.card-body -->
+
+                        </div>
+
+                        <!-- /.card -->
+
+                    </div>
+
+                    <!-- /.col -->
+
+                    <div class="col-md-9">
+
+                        <div class="card">
+
+                            <div class="card-header p-2">
+
+                                <ul class="nav nav-pills">
+
+                                    <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Messages</a></li>
+
+                                    <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Notices</a></li>
+
+                                    <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Settings</a></li>
+
+                                </ul>
+
+                            </div><!-- /.card-header -->
+
+                            <div class="card-body">
+
+                                <div class="tab-content">
+
+                                    <div class="active tab-pane" id="activity">
+
+                                        <!-- Post -->
+
+                                        <div class="post">
+                                            @foreach (var message in Model)
+                                            {
+
+
+                                                <div class="user-block">
+
+                                                    <img class="img-circle img-bordered-sm" src="~/Admin/dist/img/person1.png" alt="user image">
+
+                                                    <span class="username">
+
+                                                        <a href="#">@message.Buyer</a>
+
+                                                        <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
+
+                                                    </span>
+
+                                                    <span class="description">@message.Subject - @message.Date</span>
+
+                                                </div>
+
+                                                <!-- /.user-block -->
+
+                                                <p>
+
+                                                    @message.Contents
+
+                                                </p>
+
+
+
+                                            }
+                                        </div>
+
+                                        <!-- /.post -->
+
+
+                                    </div>
+
+                                    <!-- /.tab-pane -->
+
+                                    <div class="tab-pane" id="timeline">
+
+                                        <!-- The timeline -->
+                                        @Html.Action("PartialNotices", "CurrentPanel")
+
+                                    </div>
+
+                                    <!-- /.tab-pane -->
+
+                                    <div class="tab-pane" id="settings">
+                                        @Html.Action("PartialSettings", "CurrentPanel")
+                                    </div>
+
+                                    <!-- /.tab-pane -->
+
+                                </div>
+
+                                <!-- /.tab-content -->
+
+                            </div><!-- /.card-body -->
+
+                        </div>
+
+                        <!-- /.nav-tabs-custom -->
+
+                    </div>
+
+                    <!-- /.col -->
+
+                </div>
+
+                <!-- /.row -->
+
+            </div><!-- /.container-fluid -->
+
+        </section>
+
+        <!-- /.content -->
+
+    </div>
+    <!-- jQuery -->
+
+    <script src="~/Admin/plugins/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap 4 -->
+
+    <script src="~/Admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AdminLTE App -->
+
+    <script src="~/Admin/dist/js/adminlte.min.js"></script>
+
+    <!-- AdminLTE for demo purposes -->
+
+    <script src="~/Admin/ist/js/demo.js"></script>
+
+</body>
+
+</html>

@@ -68,6 +68,39 @@ namespace Online_Commercial_Authomation.Controllers
             c.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult Dinamic()
+        {
+            DinamicInvoice di = new DinamicInvoice();
+            di.Invoices = c.Invoices.ToList();
+            di.InvoiceItems = c.InvoiceItems.ToList();
+            return View(di);
 
+        }
+
+        public ActionResult SaveInvoice(string SerialNumber, string RowNumber, DateTime Date, string TaxAuthority, string Time, string Submitter, string Recipient, string Total, InvoiceItem[] items)
+        {
+            Invoice i = new Invoice();
+            i.SerialNumber = SerialNumber;
+            i.RowNumber = RowNumber;
+            i.Date = Date;
+            i.TaxAuthority = TaxAuthority;
+            i.Time = Time;
+            i.Submitter = Submitter;
+            i.Recipient = Recipient;
+            i.Total = decimal.Parse(Total);
+            c.Invoices.Add(i);
+            foreach (var x in items)
+            {
+                InvoiceItem it = new InvoiceItem();
+                it.Explanation = x.Explanation;
+                it.UnitPrice = x.UnitPrice;
+                it.InvoicesId = x.InvoicesId;
+                it.Quantity = x.Quantity;
+                it.Amount = x.Amount;
+                c.InvoiceItems.Add(it);
+            }
+            c.SaveChanges();
+            return Json("Transaction Successful", JsonRequestBehavior.AllowGet);
+        }
     }
 }

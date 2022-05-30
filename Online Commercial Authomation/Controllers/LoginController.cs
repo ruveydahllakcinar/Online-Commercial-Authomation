@@ -9,6 +9,7 @@ using Online_Commercial_Authomation.Models.Classes;
 
 namespace Online_Commercial_Authomation.Controllers
 {
+    [AllowAnonymous]
     public class LoginController : Controller
     {
         // GET: Login
@@ -74,5 +75,6 @@ namespace Online_Commercial_Authomation.Controllers
             
         
         }
+
     }
 }

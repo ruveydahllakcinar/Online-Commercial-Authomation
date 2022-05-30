@@ -27,6 +27,10 @@
     }
 
 </table>
-@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }), new PagedListRenderOptions { 
+LiElementClasses = new List<string>
+{ "page-link"}
+
+})
 
 <a href="/Category/CategoryAdd" class="btn btn-success"><b>ADD NEW CATEGORY</b></a>

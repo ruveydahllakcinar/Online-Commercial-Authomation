@@ -1,0 +1,43 @@
+﻿@using Online_Commercial_Authomation.Models.Classes
+@model List<CargoDetail>
+@{
+    ViewBag.Title = "CurrentCargo";
+    Layout = "~/Views/Shared/_CurrentLayout.cshtml";
+}
+
+
+<br />
+@using (Html.BeginForm("CargoTracking", "CurrentPanel", FormMethod.Get))
+{
+    <p>
+        Cargo Tracking Number: @Html.TextBox("p")
+        <input type="submit" value="Search" style="background-color: #00a8ff;" />
+    </p>
+}
+
+<table class="table table-bordered" style="margin-top:20px">
+    <tr>
+
+        <th>EMPLOYEE</th>
+        <th>BUYER</th>
+        <th>TRACKING CODE</th>
+        <th>DATE</th>
+        <th>DETAIL</th>
+    </tr>
+
+
+    @foreach (var cargo in Model)
+    {
+        <tr>
+            <td>@cargo.Employee</td>
+            <td>@cargo.Buyer</td>
+            <td>@cargo.TrackingCode</td>
+            <td>@cargo.Date.ToString("dd/MM/yyyy")</td>
+            <td><a href="/CurrrentPanel/CurrentCargo/@cargo.TrackingCode" class="btn btn-danger">DETAIL</a></td>
+
+        </tr>
+    }
+
+</table>
+
+
