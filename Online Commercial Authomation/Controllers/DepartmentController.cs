@@ -17,6 +17,7 @@ namespace Online_Commercial_Authomation.Controllers
             var values = c.Departments.Where(x => x.Situation == true).ToList();
             return View(values);
         }
+        [Authorize(Roles ="A")]
         [HttpGet]
    
         public ActionResult DepartmentAdd()

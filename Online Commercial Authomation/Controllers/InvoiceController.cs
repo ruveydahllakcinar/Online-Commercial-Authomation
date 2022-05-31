@@ -88,7 +88,7 @@ namespace Online_Commercial_Authomation.Controllers
             i.Submitter = Submitter;
             i.Recipient = Recipient;
             i.Total = decimal.Parse(Total);
-            c.Invoices.Add(i);
+         
             foreach (var x in items)
             {
                 InvoiceItem it = new InvoiceItem();
@@ -99,6 +99,7 @@ namespace Online_Commercial_Authomation.Controllers
                 it.Amount = x.Amount;
                 c.InvoiceItems.Add(it);
             }
+            c.Invoices.Add(i);
             c.SaveChanges();
             return Json("Transaction Successful", JsonRequestBehavior.AllowGet);
         }
